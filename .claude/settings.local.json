@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where:*)",
+      "Bash(npx @codespring-app/install-mcp:*)",
+      "Bash(claude mcp list:*)",
+      "Bash(test:*)"
+    ]
+  }
+}

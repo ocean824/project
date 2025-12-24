@@ -1,0 +1,64 @@
+# CodeRabbit Configuration
+# Documentation: https://docs.coderabbit.ai/guides/configure-coderabbit
+
+language: en-US
+early_access: false
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - WIP
+      - DO NOT REVIEW
+    drafts: false
+    base_branches:
+      - main
+      - master
+      - develop
+  auto_incremental_review: true
+  tools:
+    shellcheck:
+      enabled: true
+    ruff:
+      enabled: true
+    markdownlint:
+      enabled: true
+    github-checks:
+      enabled: true
+      timeout: 5m
+    languagetool:
+      enabled: true
+      enabled_only: false
+      level: default
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/*.min.js"
+    - "!**/*.min.css"
+    - "!**/package-lock.json"
+    - "!**/yarn.lock"
+    - "!**/pnpm-lock.yaml"
+  path_instructions:
+    - path: "**/*.ts"
+      instructions: |
+        - Focus on type safety and TypeScript best practices
+        - Check for any type assertions and suggest alternatives
+        - Ensure proper error handling
+    - path: "**/*.tsx"
+      instructions: |
+        - Review React component patterns and hooks usage
+        - Check for performance issues (unnecessary re-renders)
+        - Ensure accessibility best practices
+    - path: "**/*.test.ts"
+      instructions: |
+        - Verify test coverage for edge cases
+        - Check for proper mocking and assertions
+        - Ensure tests are maintainable and readable
+chat:
+  auto_reply: true
